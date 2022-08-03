@@ -35,7 +35,6 @@
   "bugs": {
     "url": "https://github.com/calip/marketing-announcement/issues"
   },
-  "homepage": "https://github.com/calip/marketing-announcement#readme",
   "browserslist": {
     "production": [
       ">0.2%",
