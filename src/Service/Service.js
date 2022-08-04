@@ -2,7 +2,7 @@ const apiUrl = 'https://marketing-announcement-api.vercel.app/api/marketing-anno
 
 const fetchData = async () => {
   const response = await fetch(apiUrl, {
-    "method": "GET",
+    'method': 'GET',
   });
   const data = await response.json();
   return data;

@@ -148,6 +148,10 @@ nav {
   font-size: 14px;
 }
 
+.card-text span label{
+  margin-left: 10px;
+}
+
 .card-text strong {
   color: #202020;
 }

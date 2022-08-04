@@ -1,6 +1,7 @@
-const Card = ({item}) => {
-  const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' })
+import Helper from "../Bloc/Helper";
+import { FaCalendarAlt } from 'react-icons/fa';
 
+const Card = ({item}) => {
   return (
     <div className="card">
 
@@ -13,7 +14,7 @@ const Card = ({item}) => {
       }
 
       <div className="card-text">
-        <span>Active <strong>{formatDate(item.createdOn)}</strong></span>
+        <span><FaCalendarAlt /> <label>Active <strong>{Helper.formatDate(item.createdOn)}</strong></label></span>
         <h2>
           <a href={item.title}>{item.title}</a>
         </h2>
@@ -22,7 +23,7 @@ const Card = ({item}) => {
           {item.description}...
         </p>
 
-        <span>Last Updated <strong>{formatDate(item.updatedOn)}</strong> by <strong>{item.updatedBy}</strong></span>
+        <span><FaCalendarAlt /> <label>Last Updated <strong>{Helper.formatDate(item.updatedOn, 'medium')}</strong> by <strong>{item.updatedBy}</strong></label></span>
       </div>
 
     </div>
