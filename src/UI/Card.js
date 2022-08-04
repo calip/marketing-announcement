@@ -1,13 +1,14 @@
 import Helper from "../Bloc/Helper";
 import { FaCalendarAlt } from 'react-icons/fa';
+import BorderCard from "./BorderCard";
 
-const Card = ({item}) => {
+const Card = ({item, selected, onChange}) => {
   return (
-    <div className="card">
+    <BorderCard className="card" onClick={onChange} selected={selected}>
 
       {item.thumbnail &&
         <img
-          alt=""
+          alt={item.title}
           src={item.thumbnail}
           className="responsive"
         />
@@ -16,7 +17,7 @@ const Card = ({item}) => {
       <div className="card-text">
         <span><FaCalendarAlt /> <label>Active <strong>{Helper.formatDate(item.createdOn)}</strong></label></span>
         <h2>
-          <a href={item.title}>{item.title}</a>
+          {item.title}
         </h2>
 
         <p>
@@ -26,7 +27,7 @@ const Card = ({item}) => {
         <span><FaCalendarAlt /> <label>Last Updated <strong>{Helper.formatDate(item.updatedOn, 'medium')}</strong> by <strong>{item.updatedBy}</strong></label></span>
       </div>
 
-    </div>
+    </BorderCard>
   );
 }
 
