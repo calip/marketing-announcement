@@ -20,7 +20,7 @@ Install the dependencies required by React once.
 npm install
 ```
 
-In the project directory, you can run:
+Run the application. 
 
 ```bash
 npm start
