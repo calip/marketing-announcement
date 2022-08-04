@@ -35,7 +35,7 @@ nav {
 .nav-image {
   height:30px; 
   width: 30px; 
-  border-radius:50px;
+  border-radius:50%;
   padding: 5px 0;
 }
 
