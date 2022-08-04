@@ -7,6 +7,7 @@ import Breadcrumb from './UI/Breadcrumb';
 import Header from './UI/Header';
 import Card from './UI/Card';
 import Searchbar from './UI/Searchbar';
+import Loader from './UI/Loader';
 
 
 function App() {
@@ -14,9 +15,15 @@ function App() {
   const [results, setResults] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
   const [isSelected, setisSelected] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Service.getData().then(result => setResults(result));
+    setLoading(true);
+    Service.getData().then(result => 
+      {
+        setResults(result)
+        setLoading(false)
+      });
   }, [])
 
   useEffect(() => {
@@ -30,13 +37,16 @@ function App() {
       <div className="main-content">
         <Breadcrumb />
         <Searchbar setSearchTerm={setSearchTerm}/>
-        <div className="cards">
+        {
+          loading ? <Loader /> : 
+          <div className="cards">
           {filteredResults.map(( item , i) => {
-            return (
-              <Card key={i} item={item} selected={isSelected === i} onChange = {() => setisSelected(i)} />
-            )
-          })}
-        </div>
+              return (
+                <Card key={i} item={item} selected={isSelected === i} onChange = {() => setisSelected(i)} />
+              )
+            })}
+          </div>
+        }
       </div>
     </div>
   );

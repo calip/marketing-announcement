@@ -59,6 +59,15 @@ nav {
   margin-top: 70px;
 }
 
+.loader {
+  padding: 1.0em 0;
+  margin: 10px 40px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
 
 .breadcrumb {
   padding: 1.0em 0;
