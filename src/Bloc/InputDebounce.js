@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
-const InputDebounce = props => {
-  const { onChange, ...otherProps } = props
+const InputDebounce = (props) => {
+  const {onChange, ...otherProps} = props
 
   const [inputTimeout, setInputTimeout] = useState(null)
 
   useEffect(() => () => clearTimeout(inputTimeout), [inputTimeout])
 
-  const inputOnChange = value => {
+  const inputOnChange = (value) => {
     if (inputTimeout) clearTimeout(inputTimeout)
     setInputTimeout(
       setTimeout(() => {
