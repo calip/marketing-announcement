@@ -1,17 +1,16 @@
+import InputDebounce from "../Bloc/InputDebounce"
 import Toggle from "./Toggle"
 
-const Searchbar = ({setSearchTerm, searchTerm}) => {
-  const handleFilter = (e) => {
-    setSearchTerm(e.target.value)
-  };
+const Searchbar = ({setSearchTerm}) => {
+  const handleFilter = (value) => {
+    setSearchTerm(value)
+  }
 
   return(
     <div className="searchbar">
       <div className="search">
-          <input
-            autoFocus
+          <InputDebounce
             placeholder="Search Title or Description"
-            value={searchTerm}
             onChange={handleFilter}
           />
       </div>

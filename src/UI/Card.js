@@ -1,5 +1,5 @@
 const Card = ({item}) => {
-  const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+  const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' })
 
   return (
     <div className="card">

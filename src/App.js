@@ -10,31 +10,31 @@ import Searchbar from './UI/Searchbar';
 
 
 function App() {
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [results, setResults] = React.useState([]);
-  const [filteredResults, setFilteredResults] = React.useState([]);
+  const [searchTerm, setSearchTerm] = React.useState("")
+  const [results, setResults] = React.useState([])
+  const [filteredResults, setFilteredResults] = React.useState([])
 
   useEffect(() => {
     Service.getData().then(result => setResults(result));
-  }, []);
+  }, [])
 
   useEffect(() => {
-    const filterResults = Filter.item(results, searchTerm);
-    setFilteredResults(filterResults);
-  }, [searchTerm, results]);
+    const filterResults = Filter.item(results, searchTerm)
+    setFilteredResults(filterResults)
+  }, [searchTerm, results])
 
   return (
     <div className="App">
       <Header />
       <div className="main-content">
         <Breadcrumb />
-        <Searchbar setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+        <Searchbar setSearchTerm={setSearchTerm}/>
         <div className="cards">
           {filteredResults.map(( item , i) => {
-          return (
-            <Card key={i} item={item} />
-          );
-        })}
+            return (
+              <Card key={i} item={item} />
+            )
+          })}
         </div>
       </div>
     </div>
