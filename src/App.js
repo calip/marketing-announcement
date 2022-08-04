@@ -5,7 +5,7 @@ import Filter from './Bloc/Filter';
 import Service from './Service/Service';
 import Breadcrumb from './UI/Breadcrumb';
 import Header from './UI/Header';
-import Item from './UI/Item';
+import Card from './UI/Card';
 import Searchbar from './UI/Searchbar';
 
 
@@ -29,13 +29,14 @@ function App() {
       <div className="main-content">
         <Breadcrumb />
         <Searchbar setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+        <div className="cards">
+          {filteredResults.map(( item , i) => {
+          return (
+            <Card key={i} item={item} />
+          );
+        })}
+        </div>
       </div>
-
-      {filteredResults.map(( item , i) => {
-        return (
-          <Item key={i} item={item} />
-        );
-      })}
     </div>
   );
 }
