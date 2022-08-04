@@ -6,11 +6,11 @@ const Card = ({item}) => {
     <div className="card">
 
       {item.thumbnail &&
-          <img
-            alt=""
-            src={item.thumbnail}
-            className="responsive"
-          />
+        <img
+          alt=""
+          src={item.thumbnail}
+          className="responsive"
+        />
       }
 
       <div className="card-text">
