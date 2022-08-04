@@ -1,6 +1,8 @@
 
 import React, { useEffect } from 'react';
 import './App.css';
+import Filter from './Bloc/Filter';
+import Service from './Service/Service';
 import Breadcrumb from './UI/Breadcrumb';
 import Header from './UI/Header';
 import Item from './UI/Item';
@@ -13,27 +15,18 @@ function App() {
   const [filteredResults, setFilteredResults] = React.useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://marketing-announcement-api.vercel.app/api/marketing-announcement`, {
-        "method": "GET",
-      });
-      const data = await response.json();
-      setResults(data);
-    }
-    fetchData();
+    Service.getData().then(result => setResults(result));
   }, []);
 
   useEffect(() => {
-    const filterResults = results.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filterResults = Filter.item(results, searchTerm);
     setFilteredResults(filterResults);
   }, [searchTerm, results]);
 
   return (
     <div className="App">
       <Header />
-      <div className="main">
+      <div className="main-content">
         <Breadcrumb />
         <Searchbar setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
       </div>
