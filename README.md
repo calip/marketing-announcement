@@ -1,6 +1,6 @@
 # Marketing Announcement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple grid card filtering with custom css. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Demo: [https://marketing-announcement.vercel.app/](https://marketing-announcement.vercel.app/)
 
